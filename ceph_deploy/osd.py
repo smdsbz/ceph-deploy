@@ -371,6 +371,7 @@ def disk_list(args, cfg):
             distro.conn,
             command,
         )
+        out = [bs.decode('utf-8') for bs in out]
         for line in out:
             if line.startswith('Disk /'):
                 distro.conn.logger.info(line)
